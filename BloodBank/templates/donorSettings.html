@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/home.css">
+    <link rel="stylesheet" href="../static/css/search.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+      
+    </style>
+    <title>Blood Bank</title>
+</head>
+<body style="background-color:  #ccccb3">
+    {%for row in data%}
+    <header>
+        <img src="../static/img/logo1.jpg" alt="logo">
+        <div class="header-tag">
+            <a href="donorHome">{{name}}</a>
+            <a href="donorProfile">My Account</a>
+            <a href="#">Settings</a>
+            <a href="logout">Logout</a>
+        </div>
+    </header>
+    <div>
+        <form action="donChangePswd" method="post">
+            <div class="content" style="background-color: #d50606; margin-bottom: 11%;">
+                <table>
+                    <center><h1>Change Password</h1></center>
+                    <tr>
+                        <td>New Password</td>
+                        <td><input type="password" name="new" required></td>
+                    </tr>
+                    <tr>
+                        <td>Confirm Password</td>
+                        <td><input type="password" name="confirm" required></td>
+                        <td hidden><input type="hidden" value={{row[0]}} name="id"></td>
+                    </tr>
+            </table>
+                <center><button type="submit" class="button">Change</button></center>
+               <center> 
+               {{msg}}
+               </center>
+            </div>
+        </form>  
+    </div>
+    {%endfor%}
+   <footer>
+    <div class="footer">
+        <p>© Copyright 2023. All rights reserved. Developed by AnjanaPK.</p>
+    </div>
+
+   </footer> 
+</body>
+</html>
+
+
+
+
+

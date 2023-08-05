@@ -1,0 +1,58 @@
+*{
+    margin:0;
+    overflow:hidden;
+}
+form{ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 106vh;
+   
+}
+form a{
+    text-decoration: None;
+    color:aliceblue;
+    font-size: 17px;
+}
+form a:hover{
+    color:aqua;
+}
+.content{
+    background:#d50606;
+    color: #fff;
+    border-radius: 10px;
+    padding: 13px 15px;
+    position:fixed;
+
+}
+.content table{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+.content table tr{
+    padding: 20px;
+    line-height: 1.9;
+}
+.content table td{
+    font-size: 20px;
+}
+.content .input-box{
+    width: 30%;
+    height: 30px;
+    margin:30px 0;
+}
+.content #icon-close{
+    position: absolute;
+    top:0;
+    right:0;
+    width:45px;
+    height:45px;
+    font-size: 1em;
+    color:#fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}

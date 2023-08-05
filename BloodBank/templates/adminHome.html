@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../static/css/dashboard.css">
+    <title>Blood Bank</title>
+</head>
+<body>
+   
+    <div class="wrapper">
+        <div class="sidebar">
+            <img src="../static/img/logo1.jpg" alt="logo">  
+            
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fas fa-desktop"></i></span>
+                        <span class="item">Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="viewDonors">
+                        <span class="icon"><i class="fas fa-user-friends"></i></span>
+                        <span class="item">Donors</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="adminSettings">
+                        <span class="icon"><i class="fas fa-cog"></i></span>
+                        <span class="item">Settings</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="home">
+                        <span class="icon"><i class="fa fa-sign-out"></i></span>
+                        <span class="item">Logout</span>
+                    </a>
+                </li>
+        </div>
+    </div>
+    <div class="dash">
+        <div class="col-div-3">
+            <div class="box">
+                {%for row in sqldata%}
+                <p>{{row[0]}}<br/><span>Donors</span></p>
+                {%endfor%}
+                <i class="fa fa-users box-icon"></i>
+            </div>
+        </div>
+        <div class="col-div-3">
+            <div class="box">
+                {%for row in count%}
+                <p>{{row[0]}}<br/><span>Blood Groups</span></p>
+                {%endfor%}
+                <i class="fa fa-heartbeat box-icon"></i>
+            </div>
+        </div>
+    </div>
+
+   <footer>
+    <div class="footer">
+        <p>© Copyright 2023. All rights reserved. Developed by AnjanaPK.</p>
+    </div>
+
+   </footer> 
+</body>
+</html>

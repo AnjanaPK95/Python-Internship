@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/home.css">
+    <link rel="stylesheet" href="../static/css/search.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+      
+    </style>
+    <title>Blood Bank</title>
+</head>
+<body style="background-color:  #ccccb3">
+    {%for row in data%}
+    <header>
+        <img src="../static/img/logo1.jpg" alt="logo">
+        <div class="header-tag">
+            <a href="donorHome">{{name}}</a>
+            <a href="#">My Account</a>
+            <a href="donorSettings">Settings</a>
+            <a href="logout">Logout</a>
+        </div>
+    </header>
+    <div>
+        <form action="/updateProfile" method="POST">
+            <div class="content">
+                 <center><h1>Profile</h1></center>
+                 <table>
+                    
+                      <!--Name-->
+                     <tr>
+                         <td>Full Name</td>
+                         <td><input type="text" value={{row[1]}} name="firstName" required></td>
+                         <td><input type="text" value={{row[2]}} name="lastName" required></td>
+                     </tr>
+                     <!--DOB-->
+                     <tr>
+                         <td>DOB</td>
+                         <td><input type="date" id="dob" name="dob"  value={{row[3]}}></td>
+                     </tr>
+                     <!--BLOOD GROUP-->
+                     <tr>
+                         <td>Blood Group</td>
+                         <td><select id="blood-group" name="blood-group" required>
+                             <option>{{row[4]}}</option>
+                             <option value="A+">A+</option>
+                             <option value="A-">A-</option>
+                             <option value="B+">B+</option>
+                             <option value="B-">B-</option>
+                             <option value="O+">O+</option>
+                             <option value="O-">O-</option>
+                             <option value="AB+">AB+</option>
+                             <option value="AB-">AB-</option>
+                         </select></td>
+                     </tr>
+                     <!--Last Donate Date-->
+                     <tr>
+                         <td>Last Donated Date</td>
+                         <td><input type="date" id="lastDonate" name="lastDonate" value={{row[5]}}></td>
+                     </tr>
+                     <!--Phone number-->
+                     <tr>
+                         <td>Phone Number</td>
+                         <td><input type="text" value={{row[6]}} name="phone" maxlength="10" minlength="10" required></td>
+                     </tr>
+                  <!--City-->
+                  <tr>
+                     <td>City</td>
+                     <td><input type="text" value={{row[7]}} name="city" required></td>
+                  </tr>
+                 <!--Address-->
+                 <tr>
+                     <td>Address</td>
+                     <td><input type="textarea" value={{row[8]}} name="address" required></td>
+                     <td hidden><input type="hidden" value={{row[0]}} name="id"></td>
+                 </tr> 
+             </table>
+                 <center><button type="submit" class="button">Update</button>
+                </center>
+                <center>{{msg}}</center><br>
+             </div>
+        </form>
+</div>
+    {%endfor%}
+   <footer>
+    <div class="footer">
+        <p>© Copyright 2023. All rights reserved. Developed by AnjanaPK.</p>
+    </div>
+
+   </footer> 
+</body>
+</html>
+
+
+
+
+

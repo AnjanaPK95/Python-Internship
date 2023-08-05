@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../static/css/dashboard.css">
+    <title>Blood Bank</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="sidebar">
+            <img src="../static/img/logo1.jpg" alt="logo">  
+            
+                <li>
+                    <a href="dashboard">
+                        <span class="icon"><i class="fas fa-desktop"></i></span>
+                        <span class="item">Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="viewDonors">
+                        <span class="icon"><i class="fas fa-user-friends"></i></span>
+                        <span class="item">Donors</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="adminSettings">
+                        <span class="icon"><i class="fas fa-cog"></i></span>
+                        <span class="item">Settings</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="home">
+                        <span class="icon"><i class="fa fa-sign-out"></i></span>
+                        <span class="item">Logout</span>
+                    </a>
+                </li>
+        </div>
+    </div>
+    <h1>Donors</h1>
+    <div class="view">
+        <center>
+        <table>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>DOB</th>
+                <th>Blood Group</th>
+                <th>Last Donated</th>
+                <th>Phone</th>
+                <th>City</th>
+                <th>Address</th>
+                <th class="search">
+                    <form action="adminSearchDonors" method="post">
+                    <input type="text" placeholder=" Search by City" name="search">
+                    <button><i class="fa fa-search" style="font-size: 18px;"> </i></button>
+                    </form>   
+                </th>  
+                
+            </tr>
+           {%for row in sqldata%}
+           <tr>
+            <td>{{row[1]}}</td>
+            <td>{{row[2]}}</td>
+            <td>{{row[3].strftime('%d-%m-%Y')}} </td>
+            <td>{{row[4]}}</td>
+            <td>{{row[5].strftime('%d-%m-%Y')}}</td>
+            <td>{{row[6]}}</td>
+            <td>{{row[7]}}</td>
+            <td>{{row[8]}}</td>
+            <td><a href="deleteDonor/{{row[0]}}">Remove</a></td>
+           </tr>
+           {%endfor%}
+        </table>
+    </center>
+    </div>
+
+   <footer>
+    <div class="footer">
+        <p>© Copyright 2023. All rights reserved. Developed by AnjanaPK.</p>
+    </div>
+
+   </footer> 
+</body>
+</html>
